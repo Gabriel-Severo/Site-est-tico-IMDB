@@ -142,7 +142,8 @@ header section .content .info p:last-child {
 
 /* MAIN */
 main {
-	height: 1500px;
+	height: 1520px;
+	background-color: #f2f2f2;
 }
 
 /* CATALOG MENU */
@@ -176,9 +177,134 @@ main .catalog-menu .content ul li a {
 	color: #e4bb23;
 	font-weight: 800;
 	font-size: 12px;
-	padding: 21px 0;
+	padding: 22px 0;
 }
 
 main .catalog-menu .content ul li a:hover {
 	box-shadow: inset 0 -1px 0 #e4bb23;
+}
+
+/* MOVIES */
+.movies {
+	width: 100%;
+	height: 93%;
+	margin-top: 40px;
+}
+
+.movies .content {
+	width: 70%;
+	height: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.movies .content .movie {
+	width: 24%;
+	height: 30%;
+}
+
+.movies .content .movie .movie-header {
+	width: 100%;
+	height: 78%;
+	position: relative;
+}
+
+.movies .content .movie .movie-header img {
+	width: 100%;
+	height: 100%;
+	border-top-left-radius: 3%;
+	border-top-right-radius: 3%;
+}
+
+.movies .content .movie .movie-header .movie-play {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	transition: all 0.2s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.movies .content .movie:hover .movie-header .movie-play {
+	opacity: 1;
+}
+
+.movies .content .movie .movie-header .movie-play p {
+	color: #e4bb23;
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.movies .content .movie .movie-header .movie-play i {
+	color: #fff;
+	font-size: 50px;
+	font-weight: 700;
+	border-radius: 0;
+}
+
+.movies .content .movie .movie-header .movie-play i:hover {
+	color: #e4bb23;
+	cursor: pointer;
+}
+
+.movies .content .movie .movie-body {
+	width: 100%;
+	height: 23%;
+	border-bottom-left-radius: 3%;
+	border-bottom-right-radius: 3%;
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 10px 10px;
+}
+
+.movies .content .movie .movie-body p {
+	margin: 0;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.movies .content .movie .movie-body .tags {
+	display: flex;
+	flex-direction: row;
+}
+
+.movies .content .movie .movie-body .tags a {
+	text-decoration: none;
+	color: #e4bb23;
+	margin: 10px 0;
+	font-size: 12px;
+}
+
+.movies .content .movie .movie-body .tags a:hover {
+	text-decoration: underline;
+}
+
+.movies .content .movie .movie-body .movie-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.movies .content .movie .movie-body .movie-footer i {
+	color: #ccc;
+	font-size: 18px;
+}
+
+.movies .content .movie .movie-body .movie-footer i:hover {
+	color: #e74c3c;
+	cursor: pointer;
+}
+
+.movies .content .movie .movie-body .movie-footer strong {
+	font-size: 18px;
+	font-weight: 900;
 }
