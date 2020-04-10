@@ -126,6 +126,11 @@ header section .content .btn-trailer {
 	font-size: 16px;
 }
 
+header section .content .btn-trailer:hover {
+	background-color: #e4bb23aa;
+	transition: all 0.5s;
+}
+
 header section .content .btn-trailer i {
 	margin-left: 10px;
 }
@@ -242,6 +247,7 @@ main .catalog-menu .content ul li a:hover {
 	color: #e4bb23;
 	font-size: 22px;
 	font-weight: 700;
+	text-align: center;
 }
 
 .movies .content .movie .movie-header .movie-play i {
