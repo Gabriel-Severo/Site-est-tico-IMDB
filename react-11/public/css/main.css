@@ -165,6 +165,7 @@ main .catalog-menu .content ul {
 	justify-content: center;
 	height: 100%;
 	margin: 0;
+	padding: 0;
 }
 
 main .catalog-menu .content ul li {
@@ -343,4 +344,42 @@ footer .content .social-icons .icon-facebook:hover {
 
 footer .content .social-icons .icon-instagram:hover {
 	color: #e95950;
+}
+
+@media (max-width: 700px) {
+	header .navbar .content {
+		width: 90%;
+	}
+	header .navbar .content .navbar-menu ul a {
+		font-size: 8px;
+	}
+	header .navbar .content .navbar-title img {
+		width: 60px;
+		height: 40px;
+	}
+	header section h1 {
+		font-size: 50px;
+	}
+	main {
+		height: 2000px;
+	}
+	main .catalog-menu {
+		height: 2%;
+	}
+	main .catalog-menu .content ul li a {
+		font-size: 10px;
+	}
+
+	main .catalog-menu .content {
+		width: 90%;
+	}
+
+	.movies .content {
+		width: 90%;
+	}
+
+	.movies .content .movie {
+		width: 30%;
+		height: 24%;
+	}
 }
