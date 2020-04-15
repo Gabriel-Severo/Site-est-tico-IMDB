@@ -6,11 +6,16 @@
 	box-sizing: border-box;
 }
 
+body {
+	background-color: #FAFAFA;
+	width: 100%;
+}
 
 .header {
 	width: 100%;
 	height: 55px;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+	background-color: white;
 }
 
 .header__content {
@@ -32,9 +37,35 @@
 	border: 0;
 }
 
+.stories {
+	height: 80px;
+	width: 100%;
+}
 
+.stories__content {
+	width: 54%;
+	height: 100%;
+	margin: 20px auto;
+	display: flex;
+}
 
+.storie__link {
+	height: 76px;
+	width: 76px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100%;
+	margin: 0 8px;
+}
 
+.storie__link--newStories {
+	background: linear-gradient(45deg, rgba(245,160,77,1) 0%, rgba(160,15,139,1) 100%);
+}
 
-
-
+.storie__thumb {
+	height: 70px;
+	width: 70px;
+	border-radius: 100%;
+	border: 2px solid white;
+}
