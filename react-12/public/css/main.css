@@ -68,11 +68,14 @@ body {
 	background: linear-gradient(45deg, rgba(245,160,77,1) 0%, rgba(160,15,139,1) 100%);
 }
 
+.user__thumb--modifier {
+	border: 2px solid white;
+}
+
 .user__thumb {
 	height: 100%;
 	width: 100%;
 	border-radius: 100%;
-	border: 2px solid white;
 }
 
 .posts {
@@ -164,8 +167,9 @@ body {
 }
 
 .user__status {
-	width: 40px;
+	width: 35px;
 	margin-right: 8px;
+	margin-left: 4px;
 	margin-top: 4px;
 }
 
