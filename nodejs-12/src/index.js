@@ -41,10 +41,12 @@ function getShoppingCart(ids, productsList) {
 	const promotion = getPromotion(products)
 	const regularPrice = getRegularPrice(products)
 	const totalPrice = getPrice(products, promotion)
+	const discountValue = (regularPrice - totalPrice).toFixed(2)
+	const discount = (discountValue * 100 / regularPrice).toFixed(2) + "%"
 	const productsMapped = products.map(product => {
 		return {category: product.category, name: product.name}
 	})
-	return {products: productsMapped, promotion: promotion, totalPrice: String(totalPrice)}
+	return {products: productsMapped, promotion: promotion, totalPrice: String(totalPrice), discountValue: discountValue, discount: discount}
 }
 
 module.exports = { getShoppingCart };
