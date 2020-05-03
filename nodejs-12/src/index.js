@@ -11,21 +11,19 @@ function getPromotion(products){
 }
 
 function getRegularPrice(products){
-	let value = 0
-	for(product of products){
-		value += product.regularPrice
-	}
+	let value = products.reduce((value, product) => {
+		return product.regularPrice + value
+	}, 0)
 	return value
 }
 
 function getPrice(products, promotion){
-	let value = 0
-	for(product of products){
+	const value = products.reduce((value, product) => {
 		const cont = product.promotions.filter(p => {
 			return p.looks.includes(promotion)
 		})
-		value += cont.length > 0 ? cont[0].price : product.regularPrice
-	}
+		return value += cont.length > 0 ? cont[0].price : product.regularPrice
+	}, 0)
 	return value.toFixed(2)
 }
 
@@ -39,8 +37,8 @@ function getShoppingCart(ids, productsList) {
 		return false
 	});
 	const promotion = getPromotion(products)
-	const regularPrice = getRegularPrice(products)
-	const totalPrice = getPrice(products, promotion)
+	const regularPrice = getRegularPrice(products)//Obtem o preço total sem nenhum desconto
+	const totalPrice = getPrice(products, promotion)//Obtem o preço total com descontos
 	const discountValue = (regularPrice - totalPrice).toFixed(2)
 	const discount = (discountValue * 100 / regularPrice).toFixed(2) + "%"
 	const productsMapped = products.map(product => {
@@ -49,4 +47,4 @@ function getShoppingCart(ids, productsList) {
 	return {products: productsMapped, promotion: promotion, totalPrice: String(totalPrice), discountValue: discountValue, discount: discount}
 }
 
-module.exports = { getShoppingCart };
+module.exports = { getShoppingCart, getPrice, getRegularPrice, getPromotion };
