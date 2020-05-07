@@ -27,7 +27,7 @@ class Contacts extends React.Component {
 								<span className="contact__data">{contact.name ? contact.name : null}</span>
 								<span className="contact__data">{contact.phone ? contact.phone : null}</span>
 								<span className="contact__data">{contact.country ? contact.country : null}</span>
-								<span className="contact__data">{contact.admissionDate ? contact.admissionDate : null}</span>
+								<span className="contact__data">{contact.admissionDate ? new Intl.DateTimeFormat('pt-BR').format(new Date(contact.admissionDate)) : null}</span>
 								<span className="contact__data">{contact.company ? contact.company : null}</span>
 								<span className="contact__data">{contact.department ? contact.department : null}</span>
 							</article>

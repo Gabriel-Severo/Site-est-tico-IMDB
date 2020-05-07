@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {contacts: []}
   }
 
-  setContact(contacts){
+  setContacts(contacts){
     this.setState({contacts})
   }
 
@@ -19,9 +19,8 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <TopBar/>
-        <Filters/>
-        <Contacts contacts={this.state.contacts} setContacts={this.setContact.bind(this)}/>
-
+        <Filters contacts={this.state.contacts} setContacts={this.setContacts.bind(this)}/>
+        <Contacts contacts={this.state.contacts} setContacts={this.setContacts.bind(this)}/>
       </React.Fragment>
     )
   }
