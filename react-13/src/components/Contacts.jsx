@@ -1,16 +1,10 @@
 import React from "react";
 
 class Contacts extends React.Component {
-
-	constructor() {
-		super()
-		this.state = {contacts: []}
-	}
-
 	async componentDidMount(){
 		const contacts = await fetch('https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts')
 		.then(value => value.json())
-		this.setState({contacts: contacts})
+		this.props.setContacts(contacts)
 	}
 
 	render() {
@@ -26,16 +20,16 @@ class Contacts extends React.Component {
 						<span className="contact__data">Empresa</span>
 						<span className="contact__data">Departamento</span>
 					</article>
-					{this.state.contacts.map(contact => {
+					{this.props.contacts.map(contact => {
 						return (
 							<article key={contact.id} className="contact">
-								<span className="contact__avatar" ><img src={contact.avatar} alt={contact.name}/></span>
-								<span className="contact__data">{contact.name}</span>
-								<span className="contact__data">{contact.phone}</span>
-								<span className="contact__data">{contact.country}</span>
-								<span className="contact__data">{contact.admissionDate}</span>
-								<span className="contact__data">{contact.company}</span>
-								<span className="contact__data">{contact.department}</span>
+								<span className="contact__avatar" >{contact.avatar ? <img src={contact.avatar} alt={contact.name}/>: null}</span>
+								<span className="contact__data">{contact.name ? contact.name : null}</span>
+								<span className="contact__data">{contact.phone ? contact.phone : null}</span>
+								<span className="contact__data">{contact.country ? contact.country : null}</span>
+								<span className="contact__data">{contact.admissionDate ? contact.admissionDate : null}</span>
+								<span className="contact__data">{contact.company ? contact.company : null}</span>
+								<span className="contact__data">{contact.department ? contact.department : null}</span>
 							</article>
 						)})}
 				</section>
