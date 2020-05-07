@@ -1,4 +1,5 @@
 import React from "react";
+import Contact from "./Contact"
 
 class Contacts extends React.Component {
 	async componentDidMount(){
@@ -21,17 +22,8 @@ class Contacts extends React.Component {
 						<span className="contact__data">Departamento</span>
 					</article>
 					{this.props.contacts.map(contact => {
-						return (
-							<article key={contact.id} className="contact">
-								<span className="contact__avatar" >{contact.avatar ? <img src={contact.avatar} alt={contact.name}/>: null}</span>
-								<span className="contact__data">{contact.name ? contact.name : null}</span>
-								<span className="contact__data">{contact.phone ? contact.phone : null}</span>
-								<span className="contact__data">{contact.country ? contact.country : null}</span>
-								<span className="contact__data">{contact.admissionDate ? new Intl.DateTimeFormat('pt-BR').format(new Date(contact.admissionDate)) : null}</span>
-								<span className="contact__data">{contact.company ? contact.company : null}</span>
-								<span className="contact__data">{contact.department ? contact.department : null}</span>
-							</article>
-						)})}
+						return (<Contact key={contact.id} contact={contact}/>)
+					})}
 				</section>
 			</div>
 		);
