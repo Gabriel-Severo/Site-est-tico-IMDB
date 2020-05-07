@@ -3,16 +3,16 @@ import React from 'react';
 class Contact extends React.Component {
   render() {
     return (
-      <article className="contact">
-        <span className="contact__avatar" >{this.props.contact.avatar ? <img src={this.props.contact.avatar} alt={this.props.contact.name}/>: null}</span>
-        <span className="contact__data">{this.props.contact.name ? this.props.contact.name : null}</span>
-        <span className="contact__data">{this.props.contact.phone ? this.props.contact.phone : null}</span>
-        <span className="contact__data">{this.props.contact.country ? this.props.contact.country : null}</span>
-        <span className="contact__data">{this.props.contact.admissionDate ? new Intl.DateTimeFormat('pt-BR').format(new Date(this.props.contact.admissionDate)) : null}</span>
-        <span className="contact__data">{this.props.contact.company ? this.props.contact.company : null}</span>
-        <span className="contact__data">{this.props.contact.department ? this.props.contact.department : null}</span>
-			</article>
-    );
+          <article className="contact" data-testid="contact">
+            <span className="contact__avatar" data-testid="contact-avatar">{this.props.contact && <img src={this.props.contact.avatar} alt={this.props.contact.name}/>}</span>
+            <span className="contact__data" data-testid="contact-name">{this.props.contact && this.props.contact.name}</span>
+            <span className="contact__data" data-testid="contact-phone">{this.props.contact && this.props.contact.phone}</span>
+            <span className="contact__data" data-testid="contact-country">{this.props.contact && this.props.contact.country}</span>
+            <span className="contact__data" data-testid="contact-date">{this.props.contact && new Intl.DateTimeFormat('pt-BR').format(new Date(this.props.contact.admissionDate))}</span>
+            <span className="contact__data" data-testid="contact-company">{this.props.contact && this.props.contact.companyl}</span>
+            <span className="contact__data" data-testid="contact-department">{this.props.contact && this.props.contact.department}</span>
+          </article>
+        );
   }
 }
 
