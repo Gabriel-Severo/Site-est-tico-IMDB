@@ -1,6 +1,13 @@
 import React from 'react';
 
 class Filters extends React.Component {
+
+	constructor() {
+		super()
+		this.state = {crescent: true}
+	}
+	
+
 	handleFilter(event, filter){
 		event.preventDefault()
 		document.querySelector('.is-selected').classList.remove('is-selected')
@@ -9,15 +16,30 @@ class Filters extends React.Component {
 		}else{
 			event.target.classList.add('is-selected')
 		}
-		this.props.setContacts(this.props.contacts.sort((a, b) => {
-			if(a[filter] < b[filter]){
-				return -1
-			}
-			if(a[filter] > b[filter]){
-				return 1
-			}
-			return 0
-		}))
+
+		if(this.state.crescent){
+			this.props.setContacts(this.props.contacts.sort((a, b) => {
+				if(a[filter] < b[filter]){
+					return 1
+				}
+				if(a[filter] > b[filter]){
+					return -1
+				}
+				return 0
+			}))
+			this.setState({crescent: false})
+		}else{
+			this.props.setContacts(this.props.contacts.sort((a, b) => {
+				if(a[filter] < b[filter]){
+					return -1
+				}
+				if(a[filter] > b[filter]){
+					return 1
+				}
+				return 0
+			}))
+			this.setState({crescent: true})
+		}
 	}
 
 	handleSearch(event){
@@ -41,7 +63,7 @@ class Filters extends React.Component {
 				</button>
 			  </div>
   
-			  <button onClick={event=> this.handleFilter(event, "name")} className="filters__item is-selected">
+			  <button onClick={event=> this.handleFilter(event, "name")} className="filters__item is-selected invert__item">
 				Nome <i className="fas fa-sort-down" />
 			  </button>
   
