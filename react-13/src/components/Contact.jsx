@@ -9,7 +9,7 @@ class Contact extends React.Component {
             <span className="contact__data" data-testid="contact-phone">{this.props.contact && this.props.contact.phone}</span>
             <span className="contact__data" data-testid="contact-country">{this.props.contact && this.props.contact.country}</span>
             <span className="contact__data" data-testid="contact-date">{this.props.contact && new Intl.DateTimeFormat('pt-BR').format(new Date(this.props.contact.admissionDate))}</span>
-            <span className="contact__data" data-testid="contact-company">{this.props.contact && this.props.contact.companyl}</span>
+            <span className="contact__data" data-testid="contact-company">{this.props.contact && this.props.contact.company}</span>
             <span className="contact__data" data-testid="contact-department">{this.props.contact && this.props.contact.department}</span>
           </article>
         );

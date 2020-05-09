@@ -2,43 +2,35 @@ import React from 'react';
 
 class Filters extends React.Component {
 
-	constructor() {
-		super()
-		this.state = {crescent: true}
+	sortList(array, filter, crescent){
+		return array.sort((a, b) => {
+			if(a[filter] < b[filter]){
+				return crescent ? 1 : -1
+			}
+			if(a[filter] > b[filter]){
+				return crescent ? -1 : 1
+			}
+			return 0
+		})
 	}
-	
 
 	handleFilter(event, filter){
 		event.preventDefault()
 		document.querySelector('.is-selected').classList.remove('is-selected')
-		if(event.target.tagName === 'I'){
-			event.target.parentNode.classList.add('is-selected')
+		let target = event.target
+		if(target.tagName === 'I'){
+			target.parentNode.classList.add('is-selected')
+			target = target.parentNode
 		}else{
-			event.target.classList.add('is-selected')
+			target.classList.add('is-selected')
 		}
 
-		if(this.state.crescent){
-			this.props.setContacts(this.props.contacts.sort((a, b) => {
-				if(a[filter] < b[filter]){
-					return 1
-				}
-				if(a[filter] > b[filter]){
-					return -1
-				}
-				return 0
-			}))
-			this.setState({crescent: false})
+		if(target.classList.contains('invert__item')){
+			target.classList.remove('invert__item')
+			this.props.setContacts(this.sortList(this.props.contacts, filter, false))
 		}else{
-			this.props.setContacts(this.props.contacts.sort((a, b) => {
-				if(a[filter] < b[filter]){
-					return -1
-				}
-				if(a[filter] > b[filter]){
-					return 1
-				}
-				return 0
-			}))
-			this.setState({crescent: true})
+			target.classList.add('invert__item')
+			this.props.setContacts(this.sortList(this.props.contacts, filter, true))
 		}
 	}
 
@@ -63,7 +55,7 @@ class Filters extends React.Component {
 				</button>
 			  </div>
   
-			  <button onClick={event=> this.handleFilter(event, "name")} className="filters__item is-selected invert__item">
+			  <button onClick={event=> this.handleFilter(event, "name")} className="filters__item is-selected">
 				Nome <i className="fas fa-sort-down" />
 			  </button>
   

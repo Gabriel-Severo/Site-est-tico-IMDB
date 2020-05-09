@@ -147,6 +147,11 @@ button {
   }
 }
 
+.filters__item.invert__item i{
+  transform: rotate(-180deg);
+  margin-top: 5px;
+}
+
 .contacts {
   width: 100%;
   display: flex;
