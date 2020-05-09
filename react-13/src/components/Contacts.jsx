@@ -16,7 +16,7 @@ class Contacts extends React.Component {
 						<span className="contact__data" data-testid="contact-department">Departamento</span>
 					</article>
 					{this.props.contacts && this.props.contacts.map(contact => {
-						return (<Contact contact={contact}/>)
+						return (<Contact key={contact.id} contact={contact}/>)
 					})}
 				</section>
 			</div>
