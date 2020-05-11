@@ -23,9 +23,11 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <TopBar/>
-        <Filters list={this.state.list} contacts={this.state.contacts} setContacts={this.setContacts.bind(this)}/>
-        <Contacts contacts={this.state.contacts}/>
+        <div className="app" data-testid="app">
+          <TopBar/>
+          <Filters list={this.state.list} contacts={this.state.contacts} setContacts={this.setContacts.bind(this)}/>
+          <Contacts contacts={this.state.contacts}/>
+        </div>
       </React.Fragment>
     )
   }
