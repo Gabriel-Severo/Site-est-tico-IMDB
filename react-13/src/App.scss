@@ -152,6 +152,25 @@ button {
   margin-top: 5px;
 }
 
+.loading{
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin: 0 auto;
+  border: 2px solid #000;
+  border-top-color: #4C84FF;
+  animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+  from {
+   transform: rotate(0deg);
+  }
+  to {
+   transform: rotate(360deg);
+  }
+}
+
 .contacts {
   width: 100%;
   display: flex;

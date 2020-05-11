@@ -8,7 +8,7 @@ import Contacts from './components/Contacts'
 class App extends React.Component {
   constructor() {
     super()
-    this.state = {contacts: [], list: []}
+    this.state = {contacts: [], list: [], loading: false}
   }
 
   
@@ -17,10 +17,10 @@ class App extends React.Component {
   }
   
   async componentDidMount(){
+    this.setState({loading: true})
     const contacts = await fetch('https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts')
     .then(value => value.json())
-    this.setContacts(contacts)
-    this.setState({list: contacts})
+    this.setState({contacts, list: contacts, loading: false})
   }
 
   render() {
@@ -28,7 +28,7 @@ class App extends React.Component {
       <React.Fragment>
         <TopBar/>
         <Filters contacts={this.state.contacts} list={this.state.list} setContacts={this.setContacts.bind(this)}/>
-        <Contacts contacts={this.state.contacts}/>
+        {this.state.loading ? <div className="loading"></div> : <Contacts contacts={this.state.contacts}/>}
       </React.Fragment>
     )
   }
